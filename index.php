@@ -15,8 +15,11 @@ class Movie {
     $this->duration = $_duration;
     $this->year = $_year;
     $this->vote = $_vote;
-    if($_vote > 4)
+    if($_vote > 4){
     $this->setDiscount("20%");
+}else{
+    $this->setDiscount("50%");
+};
   }
 
   public function setDiscount($_discount){
@@ -35,7 +38,7 @@ echo $film1->duration;
 echo $film1->year;
 echo $film1->vote;
 
-$film2 = new Movie("Il signore degli anelli", "Fantasy", "3:00", 2001, 7);
+$film2 = new Movie("Il signore degli anelli", "Fantasy", "3:00", 2001, 3);
 echo $film2->title;
 echo $film2->genre;
 echo $film2->duration;
@@ -53,7 +56,17 @@ echo $film2->vote
   <title>Document</title>
 </head>
 <body>
+    <h1>
+        <?php echo $film1->title; ?> 
+    </h1>
+    <span>Voto:<?php echo $film1->vote;?></span>
   <h3>Se il film ha un voto maggiore di 5</h3>
-  <h1>lo sconto è del: <?php echo $film1->getDiscount(); ?></h1>
+  <h2>lo sconto è del: <?php echo $film1->getDiscount(); ?></h1>
+  <h1>
+        <?php echo $film2->title;?>
+    </h1>
+    <span>Voto:<?php echo $film2->vote;?></span>
+  <h3>Se il film ha un voto minore di 5</h3>
+  <h2>lo sconto è del: <?php echo $film2->getDiscount(); ?></h1>
 </body>
 </html>
